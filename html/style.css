@@ -1,0 +1,405 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap');
+
+@font-face {
+    font-family: 'Crock';
+    src: url('font/crock.ttf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+body {
+    background: transparent;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+/* ========== HIDDEN UTILITY ========== */
+.hidden {
+    display: none !important;
+}
+
+/* ========== MENU WRAPPER ========== */
+.menu-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.menu-wrapper.visible {
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* ========== CLIPBOARD CONTAINER ========== */
+.clipboard-container {
+    width: 1000px;
+    height: 1450px;
+    background-image: url('img/clipboard.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center top;
+    position: relative;
+    transform: translateY(100%);
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.7));
+    z-index: 10;
+}
+
+.menu-wrapper.visible .clipboard-container {
+    transform: translateY(28%);
+}
+
+/* ========== PAPER AREA ========== */
+.paper-area {
+    position: absolute;
+    top: 25%;
+    left: 10%;
+    right: 10%;
+    bottom: 8%;
+    padding: 20px 50px;
+    font-family: 'Courier Prime', monospace;
+    color: #1a1510;
+    display: flex;
+    flex-direction: column;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+/* ========== SCROLLABLE CONTENT ========== */
+.content-scrollable {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 8px;
+    margin-top: 15px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.content-scrollable::-webkit-scrollbar { width: 8px; }
+.content-scrollable::-webkit-scrollbar-track { background: rgba(44, 36, 27, 0.05); }
+.content-scrollable::-webkit-scrollbar-thumb { background: #1a1510; border-radius: 2px; }
+
+/* ========== TYPOGRAPHY ========== */
+.stamped-header {
+    font-family: 'Crock', serif;
+    font-size: 42px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #1a1510;
+    border-bottom: 2px solid #1a1510;
+    padding-bottom: 8px;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+    opacity: 0.95;
+    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.4);
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-heading {
+    font-family: 'Crock', serif;
+    font-size: 26px;
+    border-bottom: 2px solid #1a1510;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    color: #1a1510;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+}
+
+/* ========== HEADER SECTION ========== */
+.header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.close-tab {
+    background: transparent;
+    border: none;
+    padding: 5px 10px;
+    font-family: 'Crock', serif;
+    font-size: 16px;
+    cursor: pointer;
+    color: #1a1510;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+.close-tab:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+/* ========== ACTION GRID ========== */
+.action-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    padding: 10px 0;
+}
+
+.action-card {
+    background: transparent;
+    border: 1px solid #1a1510;
+    padding: 20px 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: #1a1510;
+    font-family: 'Courier Prime', monospace;
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+.action-card:hover {
+    background: rgba(44, 36, 27, 0.05);
+    text-decoration: underline;
+}
+
+.action-img {
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+    filter: sepia(30%) brightness(0.9);
+}
+
+.action-icon {
+    font-size: 42px;
+    line-height: 56px;
+}
+
+/* ========== LIST CONTAINER (blue ruled lines) ========== */
+.list-container {
+    max-height: 350px;
+    overflow-y: auto;
+    border: none;
+    background-color: transparent;
+    background-image: repeating-linear-gradient(
+        transparent,
+        transparent 31px,
+        rgba(168, 209, 255, 0.4) 31px,
+        rgba(168, 209, 255, 0.4) 32px
+    );
+    background-attachment: local;
+    line-height: 32px;
+    padding: 0 10px;
+    width: 96%;
+    margin: 0 auto;
+    box-shadow: none;
+}
+
+.list-container::-webkit-scrollbar { width: 6px; }
+.list-container::-webkit-scrollbar-track { background: transparent; }
+.list-container::-webkit-scrollbar-thumb { background: #1a1510; border-radius: 2px; }
+
+/* ========== LEADERBOARD ITEMS ========== */
+.leaderboard-item {
+    background: transparent;
+    border-bottom: 1px dotted rgba(90, 74, 58, 0.3);
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 32px;
+}
+
+.leaderboard-item:hover {
+    background: rgba(44, 36, 27, 0.05);
+}
+
+.leaderboard-item.highlight {
+    background: rgba(45, 90, 30, 0.08);
+    border-left: 3px solid #2d5a1e;
+}
+
+.leaderboard-rank {
+    font-family: 'Crock', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a1510;
+    min-width: 40px;
+    text-align: center;
+}
+
+.leaderboard-rank.gold { color: #b8860b; }
+.leaderboard-rank.silver { color: #808080; }
+.leaderboard-rank.bronze { color: #cd7f32; }
+
+.leaderboard-name {
+    flex: 1;
+    padding: 0 12px;
+    font-weight: 700;
+    color: #1a1510;
+    font-size: 14px;
+}
+
+.leaderboard-xp {
+    font-family: 'Crock', serif;
+    font-size: 18px;
+    color: #2d5a1e;
+    font-weight: 700;
+}
+
+/* ========== TAB BAR ========== */
+.tab-bar {
+    display: flex;
+    gap: 0;
+    border-bottom: 2px solid #1a1510;
+    margin-bottom: 15px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tab-btn {
+    flex: 1;
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    padding: 10px 15px;
+    font-family: 'Crock', serif;
+    font-size: 20px;
+    color: #5a4a3a;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.2s;
+}
+
+.tab-btn:hover {
+    color: #1a1510;
+    background: rgba(44, 36, 27, 0.03);
+}
+
+.tab-btn.active {
+    color: #1a1510;
+    border-bottom: 3px solid #1a1510;
+    font-weight: 700;
+}
+
+/* ========== BOOK OVERLAY ========== */
+.book-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 10000;
+}
+
+.book-overlay.visible {
+    display: flex;
+}
+
+.book-container {
+    width: 800px;
+    height: 600px;
+    position: relative;
+}
+
+/* ========== BOOK PAGES (turn.js) ========== */
+#book_pages {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+#book_pages .page_row {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-size: 100% 100% !important;
+    overflow: hidden;
+    padding: 40px 30px;
+}
+
+/* ========== BOOK PAGE CONTENT ========== */
+.book-title-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+}
+
+.book-title-page h1 {
+    font-family: 'Crock', serif;
+    font-size: 32px;
+    color: #2c1810;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+
+.book-title-page h2 {
+    font-family: 'Courier Prime', monospace;
+    font-size: 14px;
+    color: #5a4a3a;
+    font-style: italic;
+    font-weight: 400;
+}
+
+.book-content-page {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.book-content-page .page-category {
+    font-family: 'Crock', serif;
+    font-size: 18px;
+    color: #2c1810;
+    text-transform: uppercase;
+    border-bottom: 1px solid #2c1810;
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+}
+
+.book-content-page .page-text {
+    font-family: 'Courier Prime', monospace;
+    font-size: 15px;
+    color: #2c1810;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+.book-content-page .page-decoration {
+    margin-top: auto;
+    text-align: center;
+    font-size: 20px;
+    color: #8b7355;
+    padding-top: 15px;
+}

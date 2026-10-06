@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mack Teacher</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="turn.min.js"></script>
+</head>
+<body>
+
+    <!-- ===================== TEACHER MENU (Clipboard) ===================== -->
+    <div id="teacherMenu" class="menu-wrapper">
+        <div class="clipboard-container">
+            <div class="paper-area">
+                <div class="header-section">
+                    <h1 class="stamped-header" id="teacherTitle">School Menu</h1>
+                    <button class="close-tab" onclick="closeUI()">Close</button>
+                </div>
+                <div class="content-scrollable">
+                    <div class="action-grid">
+                        <button class="action-card" id="btnClockIn" onclick="clockIn()">
+                            <img src="../images/clockin.png" alt="Clock In" class="action-img">
+                            <span>Clock In</span>
+                        </button>
+                        <button class="action-card" id="btnClockOut" onclick="clockOut()">
+                            <img src="../images/clockout.png" alt="Clock Out" class="action-img">
+                            <span>Clock Out</span>
+                        </button>
+                        <button class="action-card" id="btnStartClass" onclick="startClass()">
+                            <span class="action-icon">📖</span>
+                            <span>Start Class</span>
+                        </button>
+                        <button class="action-card" onclick="viewLeaderboard()">
+                            <span class="action-icon">🏆</span>
+                            <span>Top of Class</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== BOOK UI ===================== -->
+    <div id="bookOverlay" class="book-overlay">
+        <div class="book-container">
+            <div id="book_pages"></div>
+        </div>
+    </div>
+
+    <!-- ===================== LEADERBOARD ===================== -->
+    <div id="leaderboardMenu" class="menu-wrapper">
+        <div class="clipboard-container">
+            <div class="paper-area">
+                <div class="header-section">
+                    <h1 class="stamped-header">Top of Class</h1>
+                    <button class="close-tab" onclick="closeLeaderboard()">Close</button>
+                </div>
+                <div class="content-scrollable">
+                    <div class="tab-bar">
+                        <button class="tab-btn active" id="tabStudents" onclick="switchLeaderboardTab('students')">Top Students</button>
+                        <button class="tab-btn" id="tabTeachers" onclick="switchLeaderboardTab('teachers')">Top Teachers</button>
+                    </div>
+                    <div id="studentsPane" class="tab-pane">
+                        <h2 class="section-heading">Student Leaderboard</h2>
+                        <div id="studentList" class="list-container"></div>
+                    </div>
+                    <div id="teachersPane" class="tab-pane" style="display:none;">
+                        <h2 class="section-heading">Teacher Leaderboard</h2>
+                        <div id="teacherList" class="list-container"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

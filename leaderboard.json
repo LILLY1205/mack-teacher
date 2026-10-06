@@ -1,0 +1,51 @@
+[
+    {
+        "totalXP": 465,
+        "lastClass": "2026-04-09 12:20:40",
+        "citizenid": "EVL28432",
+        "role": "teacher",
+        "name": "Jessy Blackwood"
+    },
+    {
+        "totalXP": 166,
+        "lastClass": "2026-03-26 16:14:28",
+        "citizenid": "GPF35145",
+        "role": "student",
+        "name": "Bob Jepson"
+    },
+    {
+        "totalXP": 106,
+        "lastClass": "2026-03-26 16:10:14",
+        "citizenid": "AIY33470",
+        "role": "student",
+        "name": "Mack Black"
+    },
+    {
+        "totalXP": 80,
+        "lastClass": "2026-03-11 16:47:55",
+        "citizenid": "QTB98602",
+        "role": "student",
+        "name": "Thomas Paladin"
+    },
+    {
+        "totalXP": 40,
+        "lastClass": "2026-03-12 21:03:34",
+        "citizenid": "ZYV19377",
+        "role": "student",
+        "name": "Teddy McGreedy"
+    },
+    {
+        "totalXP": 40,
+        "lastClass": "2026-04-09 12:20:40",
+        "name": "Ryan Marshall",
+        "role": "student",
+        "citizenid": "OEV33002"
+    },
+    {
+        "totalXP": 20,
+        "lastClass": "2026-03-12 23:36:13",
+        "citizenid": "WBB14278",
+        "role": "student",
+        "name": "JOHN DOE"
+    }
+]
