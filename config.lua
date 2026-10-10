@@ -1,7 +1,7 @@
 Config = {}
 
 -- Debug Settings
-Config.Debug = true
+Config.Debug = false
 
 -- Job Settings
 Config.TeacherJob = 'teacher'
@@ -9,7 +9,7 @@ Config.TeacherJob = 'teacher'
 -- Discord Webhook Settings
 Config.Webhook = {
     Enabled = true,
-    ClockInOut = 'https://discord.com/api/webhooks/1478471450213089373/RzXRbfhPUeLcuVvOy06IGtXbfcQj8w9Ne9F5Lh6eoQGNkTHVVDORV83CIkdeQj3ZIbTC', -- Paste your Discord webhook URL here
+    ClockInOut = '', -- Paste your Discord webhook URL here
 }
 
 -- ============================================================================
